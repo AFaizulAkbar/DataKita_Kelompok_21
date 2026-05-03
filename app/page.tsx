@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <>
@@ -7,15 +9,22 @@ export default function Home() {
             Kelola <span>Data Warga</span><br />
             Lebih Cepat & Modern
           </h1>
+
           <p>
             Platform pendataan warga berbasis digital yang membantu RT/RW dan desa
             mengelola data secara aman, rapi, dan transparan tanpa pencatatan manual.
           </p>
-          <a href="#" className="btn">Mulai Sekarang</a>
+
+          <Link href="/dashboard" className="btn">
+            Mulai Sekarang
+          </Link>
         </div>
 
         <figure className="hero-img">
-          <img src="/assets/image/Indonesia.png" alt="Ilustrasi pendataan digital" />
+          <img 
+            src="/assets/image/Indonesia.png" 
+            alt="Ilustrasi pendataan digital" 
+          />
         </figure>
       </section>
 
@@ -42,5 +51,5 @@ export default function Home() {
         </div>
       </section>
     </>
-  )
+  );
 }
