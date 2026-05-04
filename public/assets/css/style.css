@@ -161,3 +161,8 @@ body.dark footer{background:#020617}
   text-decoration: none; 
   font-weight: bold;
 }
+
+body {
+  margin: 0;
+}
+

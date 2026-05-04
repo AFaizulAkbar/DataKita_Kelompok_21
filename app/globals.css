@@ -378,11 +378,10 @@ body.dark .services-card h3 {
     grid-template-columns: 1fr;
   }
 }
-/* ===== DESKTOP: CARD SERVICES LEBIH PANJANG ===== */
 
 @media (min-width: 1200px){
   .services-wrapper{
-    max-width: 1300px;   /* area diperlebar */
+    max-width: 1300px;   
   }
 
   .services-cards{
@@ -683,4 +682,563 @@ body.dark .team-detail-name{
     background:rgba(15,23,42,.95);
     backdrop-filter:blur(10px);
   }
+}
+
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(to bottom, #1e3a8a, #3b82f6);
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.sidebar a.active {
+  background: rgba(255,255,255,0.3);
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: #f0f9ff;
+}
+
+/* CARD */
+.card {
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* FORM */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 10px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* LIST */
+.list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.dashboard h1 {
+  font-size: 30px;
+}
+
+.dashboard p {
+  color: #555;
+}
+
+.dashboard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;
+}
+
+.sidebar {
+  width: 300px; /* lebar sidebar */
+  min-height: 200vh; 
+  background: linear-gradient(to bottom, #1e3a8a, #3b82f6);
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h1 {
+  margin-bottom: 40px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 20px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.sidebar a:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.sidebar a.active {
+  background: rgba(255,255,255,0.3);
+}
+
+/* WRAPPER HALAMAN */
+.page {
+  padding: 30px;
+}
+
+/* CARD FORM */
+.form {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* JUDUL */
+.form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* INPUT */
+.form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* FOCUS INPUT */
+.form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 5px rgba(59,130,246,0.4);
+}
+
+/* BUTTON */
+.form button {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* CARD TABLE */
+.table-container {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* TABLE */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+/* HEADER */
+.table th {
+  background: #3b82f6;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+/* DATA */
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #e74b4b;
+}
+
+/* ZEBRA STRIP */
+.table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* HOVER */
+.table tr:hover {
+  background: #e0f2fe;
+}
+
+
+/* HOVER BUTTON */
+.form button:hover {
+  background: #2563eb;
+}
+.btn-edit {
+  background: #22c55e;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: rgb(232, 24, 24);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* WRAPPER */
+.page {
+  padding: 30px;
+}
+
+/* JUDUL */
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 8px;
+}
+
+
+
+.form {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 5px rgba(59,130,246,0.4);
+}
+
+.form button {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: #2563eb;
+}
+
+
+.table-container {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background: #3b82f6;
+  color: white;
+  padding: 12px;
+}
+
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.table tr:hover {
+  background: #e0f2fe;
+}
+
+button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background: #2563eb;
+}
+
+.data-container {
+  padding: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 15px;
+}
+
+th {
+  background: #3b82f6;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.foto {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* tombol */
+.btn-detail {
+  background: #3b82f6;
+  color: white;
+  padding: 6px 10px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background: red;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* halaman detail */
+.detail-container {
+  padding: 30px;
+}
+
+.card-detail {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+}
+
+.detail-foto {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  margin-top: 20px;
+  padding: 10px;
+  background: gray;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.detail-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+
+  height: auto;
+  padding: 40px 20px;
+}
+
+/* CARD TANPA KOTAK */
+.detail-card {
+  width: 400px;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* HEADER */
+.detail-header {
+  text-align: center;
+  padding: 20px;
+}
+
+.detail-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #3b82f6;
+  margin-bottom: 10px;
+}
+
+/* BODY (SEDIKIT BOX BIAR RAPI) */
+.detail-body {
+  background: rgba(120, 164, 230, 0.7);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* ITEM */
+.item {
+  margin-bottom: 15px;
+}
+
+.item span {
+  font-size: 12px;
+  color: gray;
+}
+
+.item p {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* FOOTER */
+.detail-footer {
+  margin-top: 20px;
+}
+
+.btn-back {
+  width: 100%;
+  height: 45px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-back:hover {
+  transform: scale(1.03);
+}
+
+html, body {
+  height: auto !important;
+  min-height: 100%;
+}
+
+/* WRAPPER DASHBOARD */
+.container {
+  display: flex;
+  min-height: 100vh;
+  height: auto !important;
+}
+
+/* KONTEN KANAN */
+.content {
+  flex: 1;
+  padding: 20px;
+  height: auto !important;
+}
+
+/* HAPUS PAKSAAN TINGGI */
+.detail-wrapper {
+  height: auto !important;
+  min-height: auto !important;
+  align-items: flex-start;
+  padding: 20px;
 }
