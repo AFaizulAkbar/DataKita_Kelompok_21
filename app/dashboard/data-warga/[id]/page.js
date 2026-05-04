@@ -37,7 +37,6 @@ export default function DetailWarga() {
     <div className="detail-wrapper">
       <div className="detail-card">
 
-        {/* FOTO + NAMA */}
         <div className="detail-header">
           <img
             src={getImageUrl(warga.foto)}
@@ -47,7 +46,6 @@ export default function DetailWarga() {
           <h2>{warga.nama}</h2>
         </div>
 
-        {/* DATA */}
         <div className="detail-body">
           <div className="item">
             <span>NIK</span>
@@ -65,7 +63,6 @@ export default function DetailWarga() {
           </div>
         </div>
 
-        {/* BUTTON */}
         <div className="detail-footer">
           <button
             className="btn-back"

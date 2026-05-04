@@ -723,15 +723,14 @@ body.dark .team-detail-name{
   background: rgba(255,255,255,0.3);
 }
 
-/* CONTENT */
 .content {
   flex: 1;
-  padding: 40px;
 
   display: flex;
   justify-content: center;
   align-items: flex-start;
 
+  padding-top: 40px; /* bukan padding semua */
   background: #f0f9ff;
 }
 
@@ -816,55 +815,87 @@ button {
   background: rgba(255,255,255,0.3);
 }
 
-/* WRAPPER HALAMAN */
-.page {
-  padding: 30px;
+/* WRAPPER */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-/* CARD FORM */
-.form {
-  max-width: 500px;
-  margin: auto;
+/* CARD */
+.form-card {
+  width: 100%;
+  max-width: 700px;
   background: white;
-  padding: 25px;
+  padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* JUDUL */
-.form h2 {
+/* TITLE */
+.title {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* INPUT */
-.form input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  outline: none;
-  transition: 0.3s;
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
 }
 
-/* FOCUS INPUT */
-.form input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 5px rgba(59,130,246,0.4);
+.form input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
 /* BUTTON */
-.form button {
-  width: 100%;
+.btn {
   padding: 12px;
-  background: #3b82f6;
-  color: white;
   border: none;
   border-radius: 8px;
-  font-weight: 600;
+  background: #3b82f6;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+/* SPINNER */
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* FEEDBACK */
+.feedback {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  background: #e0f2fe;
+  color: #0369a1;
 }
 
 /* CARD TABLE */
@@ -1241,4 +1272,19 @@ html, body {
   min-height: auto !important;
   align-items: flex-start;
   padding: 20px;
+}
+
+.feedback {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #e0f2fe;
+  color: #0369a1;
+  text-align: center;
+  font-weight: 500;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

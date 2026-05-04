@@ -12,38 +12,40 @@ export default function TambahWarga() {
   });
 
   const [foto, setFoto] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
-  // HANDLE INPUT
+  
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // HANDLE SUBMIT
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log("DATA FORM:", form);
+    setLoading(true);
+    setMessage("");
 
     let fotoUrl = "";
 
-    // 🔥 UPLOAD FOTO (jika ada)
+   
     if (foto) {
       const fileName = Date.now() + "_" + foto.name;
 
       const { data, error: uploadError } = await supabase.storage
-        .from("foto-warga") // 👉 nama bucket
+        .from("foto-warga")
         .upload(fileName, foto);
 
       if (uploadError) {
-        console.log("UPLOAD ERROR:", uploadError);
-        alert("Upload gagal: " + uploadError.message);
+        setLoading(false);
+        setMessage("❌ Upload gagal: " + uploadError.message);
         return;
       }
 
       fotoUrl = data.path;
     }
 
-    // 🔥 INSERT DATA
+ 
     const { error } = await supabase.from("warga").insert([
       {
         nama: form.nama,
@@ -54,69 +56,79 @@ export default function TambahWarga() {
       },
     ]);
 
+    setLoading(false);
+
     if (error) {
-      console.log("INSERT ERROR:", error);
-      alert("Gagal tambah: " + error.message);
+      setMessage("❌ Gagal tambah: " + error.message);
     } else {
-      alert("Berhasil tambah");
+      setMessage("✅ Data berhasil ditambahkan");
+
       setForm({
         nama: "",
         nik: "",
         alamat: "",
         no_hp: "",
       });
+
       setFoto(null);
     }
   };
 
   return (
-    <div className="form-container">
-      <h1>Tambah Data Warga</h1>
+    <div className="form-wrapper">
+      <div className="form-card">
+        <h1 className="title">Tambah Data Warga</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="nama"
-          placeholder="Nama"
-          value={form.nama}
-          onChange={handleChange}
-          required
-        />
+    
+        {message && <p className="feedback">{message}</p>}
 
-        <input
-          type="text"
-          name="nik"
-          placeholder="NIK"
-          value={form.nik}
-          onChange={handleChange}
-          required
-        />
+        <form onSubmit={handleSubmit} className="form">
+          <input
+            type="text"
+            name="nama"
+            placeholder="Nama Lengkap"
+            value={form.nama}
+            onChange={handleChange}
+            required
+          />
 
-        <input
-          type="text"
-          name="alamat"
-          placeholder="Alamat"
-          value={form.alamat}
-          onChange={handleChange}
-          required
-        />
+          <input
+            type="text"
+            name="nik"
+            placeholder="NIK"
+            value={form.nik}
+            onChange={handleChange}
+            required
+          />
 
-        <input
-          type="text"
-          name="no_hp"
-          placeholder="No HP"
-          value={form.no_hp}
-          onChange={handleChange}
-          required
-        />
+          <input
+            type="text"
+            name="alamat"
+            placeholder="Alamat"
+            value={form.alamat}
+            onChange={handleChange}
+            required
+          />
 
-        <input
-          type="file"
-          onChange={(e) => setFoto(e.target.files[0])}
-        />
+          <input
+            type="text"
+            name="no_hp"
+            placeholder="No HP"
+            value={form.no_hp}
+            onChange={handleChange}
+            required
+          />
 
-        <button type="submit">Simpan</button>
-      </form>
+          <input
+            type="file"
+            onChange={(e) => setFoto(e.target.files[0])}
+          />
+
+          <button type="submit" disabled={loading} className="btn">
+            {loading ? <span className="loader"></span> : "Simpan"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

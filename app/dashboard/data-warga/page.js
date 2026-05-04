@@ -81,7 +81,6 @@ export default function DataWarga() {
               <td>{warga.no_hp}</td>
 
               <td>
-                {/* 🔥 tombol detail */}
                 <button
                   className="btn-detail"
                   onClick={() =>
@@ -91,7 +90,6 @@ export default function DataWarga() {
                   Detail
                 </button>
 
-                {/* 🔥 tombol delete */}
                 <button
                   className="btn-delete"
                   onClick={() => handleDelete(warga.id, warga.foto)}
