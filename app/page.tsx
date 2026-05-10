@@ -15,15 +15,16 @@ export default function Home() {
             mengelola data secara aman, rapi, dan transparan tanpa pencatatan manual.
           </p>
 
-          <Link href="/dashboard" className="btn">
+          {/* 🔥 ubah ke login */}
+          <Link href="/login" className="btn">
             Mulai Sekarang
           </Link>
         </div>
 
         <figure className="hero-img">
-          <img 
-            src="/assets/image/Indonesia.png" 
-            alt="Ilustrasi pendataan digital" 
+          <img
+            src="/assets/image/Indonesia.png"
+            alt="Ilustrasi pendataan digital"
           />
         </figure>
       </section>
@@ -36,17 +37,23 @@ export default function Home() {
         <div className="grid">
           <div className="card">
             <h3>Input Data Super Cepat</h3>
-            <p>Tambah dan perbarui data warga hanya dalam hitungan detik.</p>
+            <p>
+              Tambah dan perbarui data warga hanya dalam hitungan detik.
+            </p>
           </div>
 
           <div className="card">
             <h3>Penyimpanan Cloud Aman</h3>
-            <p>Data tersimpan otomatis dan aman dari risiko kehilangan.</p>
+            <p>
+              Data tersimpan otomatis dan aman dari risiko kehilangan.
+            </p>
           </div>
 
           <div className="card">
             <h3>Laporan Otomatis</h3>
-            <p>Rekap data siap cetak kapan saja saat dibutuhkan.</p>
+            <p>
+              Rekap data siap cetak kapan saja saat dibutuhkan.
+            </p>
           </div>
         </div>
       </section>
