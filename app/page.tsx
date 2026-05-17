@@ -1,8 +1,12 @@
 import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
+      <Header />
+
       <section className="hero">
         <div className="hero-text">
           <h1>
@@ -15,7 +19,6 @@ export default function Home() {
             mengelola data secara aman, rapi, dan transparan tanpa pencatatan manual.
           </p>
 
-          {/* 🔥 ubah ke login */}
           <Link href="/login" className="btn">
             Mulai Sekarang
           </Link>
@@ -57,6 +60,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }

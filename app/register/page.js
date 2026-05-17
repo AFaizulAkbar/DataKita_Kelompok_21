@@ -4,6 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+import toast from "react-hot-toast";
+
 import { Eye, EyeOff } from "lucide-react";
 
 export default function RegisterPage() {
@@ -19,7 +24,7 @@ export default function RegisterPage() {
     e.preventDefault();
 
     if (!nama || !username || !email || !password) {
-      alert("Semua field wajib diisi");
+      toast.error("Semua field wajib diisi");
       return;
     }
 
@@ -36,98 +41,121 @@ export default function RegisterPage() {
 
     if (error) {
       console.log(error);
-      alert("Register gagal");
+
+      toast.error("Register gagal");
       return;
     }
 
-    alert("Register berhasil");
+    toast.success("Register berhasil");
 
-    window.location.href = "/login";
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 1500);
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
-        {/* KIRI */}
-        <div className="auth-left">
+    <>
 
-          <img
-            src="/assets/image/Logo DK.png"
-            alt="Register"
-          />
+      <Header />
 
-        </div>
+      <div className="auth-page">
 
-        <div className="auth-right">
-          <h1>Buat Akun </h1>
-          <p>
-            Daftarkan akun baru untuk DataKita
-          </p>
+        <div className="auth-card">
 
-          <form onSubmit={handleRegister}>
-            <input
-              type="text"
-              placeholder="Nama Lengkap"
-              value={nama}
-              onChange={(e) => setNama(e.target.value)}
+          {/* KIRI */}
+          <div className="auth-left">
+
+            <img
+              src="/assets/image/Logo DK.png"
+              alt="Register"
             />
 
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+          </div>
 
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          {/* KANAN */}
+          <div className="auth-right">
 
-            <div className="password-box">
+            <h1>Buat Akun</h1>
+
+            <p>
+              Daftarkan akun baru untuk DataKita
+            </p>
+
+            <form onSubmit={handleRegister}>
 
               <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                type="text"
+                placeholder="Nama Lengkap"
+                value={nama}
+                onChange={(e) => setNama(e.target.value)}
               />
 
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <div className="password-box">
+
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+
+                <button
+                  type="button"
+                  className="eye-btn"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+
+                  {showPassword ? (
+                    <EyeOff size={20} />
+                  ) : (
+                    <Eye size={20} />
+                  )}
+
+                </button>
+
+              </div>
+
               <button
-                type="button"
-                className="eye-btn"
-                onClick={() => setShowPassword(!showPassword)}
+                type="submit"
+                className="login-btn"
               >
-
-                {showPassword ? (
-                  <EyeOff size={20} />
-                ) : (
-                  <Eye size={20} />
-                )}
-
+                Register
               </button>
+
+            </form>
+
+            <div className="register-link">
+
+              Sudah punya akun?
+
+              <Link href="/login">
+                {" "}Login
+              </Link>
+
             </div>
 
-            <button
-              type="submit"
-              className="login-btn"
-            >
-              Register
-            </button>
-
-          </form>
-          <div className="register-link">
-
-            Sudah punya akun?
-
-            <Link href="/login">
-              {" "}Login
-            </Link>
           </div>
+
         </div>
+
       </div>
-    </div>
+
+      <Footer />
+
+    </>
   );
 }

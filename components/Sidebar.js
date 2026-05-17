@@ -4,16 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
+
   const path = usePathname();
 
-  // 🔥 logout
+  // LOGOUT
   const handleLogout = () => {
 
-    // hapus cookie login
     document.cookie =
       "login=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
 
-    // pindah ke login
     window.location.href = "/login";
   };
 
@@ -44,6 +43,14 @@ export default function Sidebar() {
         className={path.includes("tambah-warga") ? "active" : ""}
       >
         Tambah Warga
+      </Link>
+
+      {/* Laporan Warga */}
+      <Link
+        href="/dashboard/laporan"
+        className={path.includes("laporan") ? "active" : ""}
+      >
+        Laporan Warga
       </Link>
 
       {/* Logout */}

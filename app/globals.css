@@ -1674,3 +1674,187 @@ button:disabled {
   flex-direction: column;
   gap: 8px;
 }
+
+/* =======================
+   LAPORAN WARGA
+======================= */
+
+.laporan-container{
+  width:100%;
+}
+
+.laporan-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+.laporan-top h1{
+  font-size:28px;
+  color:#1e3a8a;
+  margin-bottom:5px;
+}
+
+.laporan-top p{
+  color:#666;
+  font-size:14px;
+}
+
+.pdf-btn{
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  padding:12px 20px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  transition:.3s;
+}
+
+.pdf-btn:hover{
+  background:#1d4ed8;
+}
+
+.table-wrapper{
+  background:#fff;
+  padding:20px;
+  border-radius:20px;
+  overflow-x:auto;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.laporan-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.laporan-table thead{
+  background:#2563eb;
+}
+
+.laporan-table th{
+  color:#fff;
+  padding:15px;
+  text-align:left;
+  font-size:14px;
+}
+
+.laporan-table td{
+  padding:15px;
+  border-bottom:1px solid #eee;
+  font-size:14px;
+}
+
+.laporan-table tr:hover{
+  background:#f8fbff;
+}
+
+.foto-warga{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media(max-width:768px){
+
+  .laporan-top{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .laporan-top h1{
+    font-size:22px;
+  }
+
+  .pdf-btn{
+    width:100%;
+  }
+
+}
+
+
+/* =========================
+   PRINT PDF
+========================= */
+
+@media print {
+
+  /* Hilangkan sidebar */
+  .sidebar{
+    display:none !important;
+  }
+
+  /* Hilangkan tombol PDF */
+  .pdf-btn{
+    display:none !important;
+  }
+
+  /* Hilangkan shadow/card */
+  .table-wrapper{
+    box-shadow:none;
+    padding:0;
+    border-radius:0;
+  }
+
+  /* Full layar */
+  .laporan-container{
+    width:100%;
+    margin:0;
+    padding:0;
+  }
+
+  /* Judul PDF */
+  .laporan-top{
+    margin-bottom:25px;
+    border-bottom:2px solid #2563eb;
+    padding-bottom:10px;
+  }
+
+  .laporan-top h1{
+    font-size:28px;
+    color:#000;
+  }
+
+  .laporan-top p{
+    color:#444;
+  }
+
+  /* Table PDF */
+  .laporan-table{
+    width:100%;
+    border-collapse:collapse;
+  }
+
+  .laporan-table th{
+    background:#2563eb !important;
+    color:white !important;
+    font-size:13px;
+    padding:12px;
+  }
+
+  .laporan-table td{
+    border:1px solid #ddd;
+    padding:10px;
+    font-size:12px;
+    color:#000;
+  }
+
+  .foto-warga{
+    width:45px;
+    height:45px;
+    border-radius:8px;
+  }
+
+  body{
+    background:white;
+  }
+
+}

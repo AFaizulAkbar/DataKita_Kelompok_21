@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 import { Eye, EyeOff } from "lucide-react";
 
@@ -13,90 +15,101 @@ export default function LoginPage() {
 
   const [showPassword, setShowPassword] = useState(false);
 
-const handleLogin = async (e) => {
-  e.preventDefault();
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-  const { data, error } = await supabase
-    .from("login")
-    .select("*")
-    .eq("username", username)
-    .eq("password", password)
-    .single();
+    const { data, error } = await supabase
+      .from("login")
+      .select("*")
+      .eq("username", username)
+      .eq("password", password)
+      .single();
 
-  if (error || !data) {
-    alert("❌ Username atau password salah");
-    return;
-  }
+    if (error || !data) {
+      alert("❌ Username atau password salah");
+      return;
+    }
 
-  document.cookie = "login=true; path=/";
+    document.cookie = "login=true; path=/";
 
-  alert("✅ Login berhasil");
+    alert("✅ Login berhasil");
 
-  window.location.href = "/dashboard";
-};
+    window.location.href = "/dashboard";
+  };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
-        <div className="auth-left">
+    <>
 
-          <img
-            src="/assets/image/Logo DK.png"
-            alt="Login"
-          />
-        </div>
+      <Header />
 
-        <div className="auth-right">
-          <h1>Selamat Datang </h1>
+      <div className="auth-page">
 
-          <p>
-            Login untuk mengakses DataKita
-          </p>
+        <div className="auth-card">
 
-          <input
-            type="text"
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
+          <div className="auth-left">
 
-          <div className="password-box">
-
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
+            <img
+              src="/assets/image/Logo DK.png"
+              alt="Login"
             />
-
-            <button
-              type="button"
-              className="eye-btn"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-
-              {showPassword ? (
-                <EyeOff size={20} />
-              ) : (
-                <Eye size={20} />
-              )}
-
-            </button>
 
           </div>
 
-          <button onClick={handleLogin}>
-            Login
-          </button>
+          <div className="auth-right">
 
-          <div className="register-link">
+            <h1>Selamat Datang</h1>
 
-            Belum punya akun?
+            <p>
+              Login untuk mengakses DataKita
+            </p>
 
-            <Link href="/register">
-              {" "}Register
-            </Link>
+            <input
+              type="text"
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+
+            <div className="password-box">
+
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+
+              <button
+                type="button"
+                className="eye-btn"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+
+                {showPassword ? (
+                  <EyeOff size={20} />
+                ) : (
+                  <Eye size={20} />
+                )}
+
+              </button>
+
+            </div>
+
+            <button onClick={handleLogin}>
+              Login
+            </button>
+
+            <div className="register-link">
+
+              Belum punya akun?
+
+              <Link href="/register">
+                {" "}Register
+              </Link>
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
