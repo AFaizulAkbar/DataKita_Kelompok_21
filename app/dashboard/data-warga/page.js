@@ -178,16 +178,11 @@ export default function DataWarga() {
                 >
                   Hapus
                 </button>
-
               </td>
-
             </tr>
           ))}
-
         </tbody>
-
       </table>
-
     </div>
   );
 }

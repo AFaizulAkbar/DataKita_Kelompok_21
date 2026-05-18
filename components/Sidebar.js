@@ -10,7 +10,6 @@ export default function Sidebar() {
 
   const [open, setOpen] = useState(false);
 
-  // LOGOUT
   const handleLogout = () => {
 
     document.cookie =
@@ -22,7 +21,7 @@ export default function Sidebar() {
   return (
     <>
 
-      {/* HAMBURGER MOBILE */}
+      {/* BUTTON MENU */}
       <div
         className="mobile-menu"
         onClick={() => setOpen(!open)}
@@ -33,9 +32,19 @@ export default function Sidebar() {
       {/* SIDEBAR */}
       <div className={`sidebar ${open ? "show" : ""}`}>
 
-        <h2>DataKita</h2>
+        {/* LOGO */}
+        <div className="sidebar-top">
 
-        {/* Dashboard */}
+          <img
+            src="/assets/image/Logo DK.png"
+            alt="Logo"
+          />
+
+          <h2>DataKita</h2>
+
+        </div>
+
+        {/* MENU */}
         <Link
           href="/dashboard"
           className={path === "/dashboard" ? "active" : ""}
@@ -44,7 +53,6 @@ export default function Sidebar() {
           Dashboard
         </Link>
 
-        {/* Data Warga */}
         <Link
           href="/dashboard/data-warga"
           className={path.includes("data-warga") ? "active" : ""}
@@ -53,7 +61,6 @@ export default function Sidebar() {
           Data Warga
         </Link>
 
-        {/* Tambah Warga */}
         <Link
           href="/dashboard/tambah-warga"
           className={path.includes("tambah-warga") ? "active" : ""}
@@ -62,16 +69,14 @@ export default function Sidebar() {
           Tambah Warga
         </Link>
 
-        {/* Laporan Warga */}
         <Link
           href="/dashboard/laporan"
           className={path.includes("laporan") ? "active" : ""}
           onClick={() => setOpen(false)}
         >
-          Laporan Warga
+          Laporan
         </Link>
 
-        {/* Logout */}
         <button
           className="logout-btn"
           onClick={handleLogout}
